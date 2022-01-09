@@ -26,6 +26,9 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- Icon for Dark Mode -->
+  <script src="https://kit.fontawesome.com/91e547386c.js"></script>
 </head>
 
 <body>
@@ -40,6 +43,14 @@
         <img src="assets/img/IMG_20211229_110012_148.jpg" alt="" class="img-fluid rounded-circle">
         <h1 class="text-light"><a href="index.html">Ndriçim Lahu</a></h1>
         <div class="social-links mt-3 text-center">
+          <a><i id="dark-mode-btn" class="toggler far fa-moon" onclick="darkMode()"></i></a>
+          <script>
+            function darkMode() {
+              var element = document.body;
+              element.classList.toggle("dark-mode");
+            }
+          </script>
+          <br><br>
           <a href="https://www.facebook.com/ndriqimi2001" class="facebook"><i class="bx bxl-facebook"></i></a>
           <a href="https://www.instagram.com/ndriqim_lahu" class="instagram"><i class="bx bxl-instagram"></i></a>
           <a href="https://www.linkedin.com/in/ndriçimlahu" class="linkedin"><i class="bx bxl-linkedin"></i></a>
@@ -313,7 +324,7 @@
   <!-- End Resume Section -->
 
   <!-- ======= Portfolio Section ======= -->
-  <section id="portfolio" class="portfolio section-bg">
+  <section id="portfolio" class="portfolio">
     <div class="container">
 
       <div class="section-title">
@@ -477,7 +488,7 @@
   <!-- End Services Section -->
 
   <!-- ======= Testimonials Section ======= -->
-  <!--<section id="testimonials" class="testimonials section-bg">
+  <!--<section id="testimonials" class="testimonials">
     <div class="container">
 
       <div class="section-title">
