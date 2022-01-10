@@ -297,6 +297,7 @@ section {
 .facts .count-box {
   padding: 30px;
   width: 100%;
+  box-shadow: 0 0 24px 0 rgb(0 0 0 / 12%);
 }
 .facts .count-box i {
   display: block;
