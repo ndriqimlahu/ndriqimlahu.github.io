@@ -335,7 +335,7 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Akills
+# Digital Skills
 --------------------------------------------------------------*/
 .skills .progress {
   height: 60px;
@@ -350,7 +350,7 @@ section {
   display: block;
   font-weight: 600;
   font-family: "Poppins", sans-serif;
-  color: #050d18;
+  /*color: #050d18;*/
 }
 .skills .progress .skill .val {
   float: right;
@@ -361,10 +361,12 @@ section {
   height: 10px;
 }
 .skills .progress-bar {
+  background-color: #e41655;
   width: 1px;
   height: 10px;
   transition: 0.9s;
-  background-color: #e41655;
+  border: 1px solid #e41655;
+  border-radius: 12px;
 }
 
 /*--------------------------------------------------------------
