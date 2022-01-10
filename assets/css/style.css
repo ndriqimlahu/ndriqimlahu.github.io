@@ -600,9 +600,9 @@ section {
   margin-bottom: 15px;
   font-size: 18px;
 }
-.services .title a {
+/*.services .title a {
   color: #343a40;
-}
+}*/
 .services .title a:hover {
   color: #e2376a;
 }
