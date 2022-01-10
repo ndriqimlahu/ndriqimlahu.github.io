@@ -65,6 +65,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0 15px;
   background: #040b14;
   overflow-y: auto;
+  border: 1px solid #071424;
 }
 #header .profile img {
   margin: 15px auto;
@@ -896,6 +897,7 @@ section {
   width: 300px;
   z-index: 9999;
   background: #040b14;
+  border: 1px solid #071424;
 }
 #footer .copyright {
   text-align: center;
