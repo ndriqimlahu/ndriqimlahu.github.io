@@ -463,6 +463,8 @@ section {
   position: relative;
   overflow: hidden;
   z-index: 1;
+  border: 1px solid #000;
+  border-radius: 20px;
 }
 .portfolio .portfolio-wrap::before {
   content: "";
