@@ -853,16 +853,21 @@ section {
     background-attachment: fixed;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 790px) {
+  #home {
+    height: 80vh;
+  }
+  #home::before {
+    bottom: 20%;
+  }
   #home h1 {
-    font-size: 28px;
-    line-height: 36px;
+    font-size: 50px;
   }
-  #home h2 {
-    font-size: 18px;
-    line-height: 24px;
-    margin-bottom: 30px;
+  #home p {
+    font-size: 25px;
   }
+}
+@media (max-width: 768px) {
   .breadcrumbs .d-flex {
     display: block !important;
   }
@@ -873,11 +878,130 @@ section {
     display: inline-block;
   }
 }
-@media (max-width: 575px) {
+@media (max-width: 690px) {
   #home {
-    height: 75vh;
+    height: 100vh;
   }
   #home::before {
-    bottom: 25%;
+    bottom: 0%;
+  }
+  #home h1 {
+    font-size: 45px;
+  }
+  #home p {
+    font-size: 25px;
+  }
+}
+@media (max-width: 645px) {
+  #home {
+    height: 98vh;
+  }
+  #home::before {
+    bottom: 2%;
+  }
+  #home h1 {
+    font-size: 45px;
+  }
+  #home p {
+    font-size: 25px;
+  }
+}
+@media (max-width: 590px) {
+  #home {
+    height: 90vh;
+  }
+  #home::before {
+    bottom: 10%;
+  }
+  #home h1 {
+    font-size: 40px;
+  }
+  #home p {
+    font-size: 25px;
+  }
+}
+@media (max-width: 520px) {
+  #home {
+    height: 78vh;
+  }
+  #home::before {
+    bottom: 22%;
+  }
+  #home h1 {
+    font-size: 40px;
+  }
+  #home p {
+    font-size: 22px;
+  }
+  .progress-bar {
+    width: 100% !important;
+  }
+}
+@media (max-width: 468px) {
+  #home {
+    height: 70vh;
+  }
+  #home::before {
+    bottom: 30%;
+  }
+  #home h1 {
+    font-size: 38px;
+  }
+  #home p {
+    font-size: 20px;
+  }
+  .progress-bar {
+    width: 100% !important;
+  }
+}
+@media (max-width: 425px) {
+  #home {
+    height: 62vh;
+  }
+  #home::before {
+    bottom: 38%;
+  }
+  #home h1 {
+    font-size: 36px;
+  }
+  #home p {
+    font-size: 18px;
+  }
+  .progress-bar {
+    width: 100% !important;
+  }
+}
+@media (max-width: 375px) {
+  #home {
+    height: 55vh;
+  }
+  #home::before {
+    bottom: 45%;
+  }
+  #home h1 {
+    font-size: 34px;
+  }
+  #home p {
+    font-size: 18px;
+  }
+  .progress-bar {
+    width: 100% !important;
+  }
+}
+@media (max-width: 320px) {
+  #home {
+    height: 48vh;
+  }
+  #home::before {
+    bottom: 52%;
+  }
+  #home h1 {
+    font-size: 30px;
+  }
+  #home p {
+    font-size: 15px;
+  }
+  .progress-bar {
+    width: 100% !important;
   }
 }
