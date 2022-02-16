@@ -406,6 +406,7 @@ section {
 }
 .resume .resume-item ul {
   padding-left: 20px;
+  list-style-type: none;
 }
 .resume .resume-item ul li {
   padding-bottom: 10px;
@@ -423,6 +424,12 @@ section {
   top: 0;
   background: #fff;
   border: 2px solid #e2376a;
+}
+.resume .resume-item .resume-image {
+  border: 1px solid #000;
+  border-radius: 5px;
+  width: 75px;
+  height: 75px;
 }
 
 /*--------------------------------------------------------------
