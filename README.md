@@ -54,6 +54,7 @@ This portfolio website is based on technologies like below:
 
 * HTML5
 * CSS3
+* Bootstrap
 * JavaScript
 
 
