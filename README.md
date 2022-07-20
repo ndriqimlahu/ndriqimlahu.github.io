@@ -1,6 +1,6 @@
 <!-- PROJECT LOGO -->
 <p align="center">
-  <img src="https://github.com/ndriqimlahu/NdriqimLahuPortfolio/blob/main/assets/portfolio/NdriqimLahuPortfolio.png" alt="Logo" width="250" height="250">
+  <img src="https://github.com/ndriqimlahu/ndriqim-lahu-portfolio/blob/main/assets/portfolio/NdriqimLahuPortfolio.png" alt="Logo" width="250" height="250">
   <h3 align="center">Ndriçim Lahu Portfolio</h3>
   <p align="center">
     Ndriçim Lahu
@@ -8,9 +8,9 @@
     <br>
     <a href="https://ndriqimlahu.ml">View Website</a>
     ·
-    <a href="https://github.com/ndriqimlahu/NdriqimLahuPortfolio/issues">Report Bug</a>
+    <a href="https://github.com/ndriqimlahu/ndriqim-lahu-portfolio/issues">Report Bug</a>
     ·
-    <a href="https://github.com/ndriqimlahu/NdriqimLahuPortfolio/issues">Request Feature</a>
+    <a href="https://github.com/ndriqimlahu/ndriqim-lahu-portfolio/issues">Request Feature</a>
   </p>
 </p>
 
@@ -73,7 +73,7 @@ In order to open this website is required to have an IDE or Code Editor (Visual 
 
 1. Download the code or Clone the repo:
    ```terminal
-   git clone https://github.com/ndriqimlahu/NdriqimLahuPortfolio.git
+   git clone https://github.com/ndriqimlahu/ndriqim-lahu-portfolio.git
    ```
 2. Open the repo folder with your IDE or Code Editor.
 3. Launch the website with your Browser by clicking in the `index.html` file.
@@ -92,14 +92,6 @@ There you can see some useful additional screenshots of how the project looks li
 ## License
 
 Distributed under the Apache License 2.0. See `LICENSE` for more information.
-
-
-<!-- CONTACT -->
-## Contact
-
-**LinkedIn:** https://www.linkedin.com/in/ndriçimlahu
-
-**Mail:** ndriqim_lahu@hotmail.com
 
 
 <!-- SUPPORT -->
