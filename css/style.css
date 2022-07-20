@@ -431,6 +431,9 @@ section {
   width: 75px;
   height: 75px;
 }
+#opendatakosovo-projects {
+  display: inline-flex;
+}
 
 /*--------------------------------------------------------------
 # Portfolio
