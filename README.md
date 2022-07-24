@@ -26,7 +26,6 @@
       </ul>
     </li>
     <li><a href="#copyright">Copyright</a></li>
-    <li><a href="#support">Support</a></li>
   </ol>
 </details>
 
