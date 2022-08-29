@@ -527,6 +527,19 @@ section {
   opacity: 1;
   bottom: 0;
 }
+.portfolio .portfolio-status {
+  color: #ffffff;
+  background: #e41655;
+  width: 200px;
+  z-index: 1;
+  position: absolute;
+  top: 18px;
+  right: -68px;
+  transform: rotate(45deg);
+  padding: 1px 0 3px 0;
+  font-size: 14px;
+  text-align: center;
+}
 
 /*--------------------------------------------------------------
 # Portfolio Details
