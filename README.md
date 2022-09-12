@@ -25,7 +25,7 @@
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
-    <li><a href="#copyright">Copyright</a></li>
+    <li><a href="#license">License</a></li>
   </ol>
 </details>
 
@@ -48,7 +48,7 @@ This portfolio website is based on technologies like below:
 * JavaScript
 
 
-<!-- COPYRIGHT -->
-## Copyright
+<!-- LICENSE -->
+## License
 
-See the `COPYRIGHT` file for more information.
+See the `LICENSE` file for more information.
