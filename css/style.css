@@ -434,7 +434,7 @@ section {
 #opendatakosovo-projects {
   display: inline-flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-around;
   padding: initial;
 }
 
@@ -444,7 +444,7 @@ section {
 .portfolio .portfolio-item {
   margin-bottom: 30px;
 }
-.portfolio #portfolio-flters {
+.portfolio #portfolio-filters {
   padding: 0;
   margin: 0 auto 35px auto;
   list-style: none;
@@ -453,7 +453,7 @@ section {
   border-radius: 50px;
   padding: 2px 15px;
 }
-.portfolio #portfolio-flters li {
+.portfolio #portfolio-filters li {
   cursor: pointer;
   display: inline-block;
   padding: 10px 15px 8px 15px;
@@ -465,10 +465,10 @@ section {
   margin-bottom: 5px;
   transition: all 0.3s ease-in-out;
 }
-.portfolio #portfolio-flters li:hover, .portfolio #portfolio-flters li.filter-active {
+.portfolio #portfolio-filters li:hover, .portfolio #portfolio-filters li.filter-active {
   color: #e2376a;
 }
-.portfolio #portfolio-flters li:last-child {
+.portfolio #portfolio-filters li:last-child {
   margin-right: 0;
 }
 .portfolio .portfolio-wrap {
@@ -598,8 +598,17 @@ section {
 /*--------------------------------------------------------------
 # Services
 --------------------------------------------------------------*/
+.personal-services {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
 .services .icon-box {
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
+  padding: 30px;
+  width: 100%;
+  box-shadow: 0 0 24px 0 rgb(0 0 0 / 12%);
 }
 .services .icon {
   float: left;
@@ -625,10 +634,12 @@ section {
   color: #e2376a;
 }
 .services .title {
-  margin-left: 80px;
-  font-weight: 700;
+  margin-top: 15px;
   margin-bottom: 15px;
+  margin-left: 70px;
   font-size: 18px;
+  font-weight: 700;
+  text-align: center;
 }
 /*.services .title a {
   color: #343a40;
