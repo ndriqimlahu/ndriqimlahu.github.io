@@ -109,7 +109,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .dark-mode {
   color: #f5f8fd;
-  background-color: #040b14;
+  background-color: #28292A;
 }
 
 #main {
@@ -603,7 +603,6 @@ section {
   flex-wrap: wrap;
   justify-content: space-around;
 }
-
 .services .icon-box {
   /* margin-bottom: 20px; */
   padding: 30px;
@@ -887,7 +886,7 @@ section {
 }
 @media (min-width: 1024px) {
   #home {
-    background-attachment: fixed;
+    background-attachment: scroll;
   }
 }
 @media (max-width: 790px) {
