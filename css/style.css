@@ -431,7 +431,7 @@ section {
   width: 75px;
   height: 75px;
 }
-#opendatakosovo-projects {
+#work-projects-1 {
   display: inline-flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -449,7 +449,7 @@ section {
   margin: 0 auto 35px auto;
   list-style: none;
   text-align: center;
-  background: #cecece;
+  background: #eeeeee;
   border-radius: 50px;
   padding: 2px 15px;
 }
@@ -604,7 +604,7 @@ section {
   justify-content: space-around;
 }
 .services .icon-box {
-  /* margin-bottom: 20px; */
+  margin-bottom: 20px;
   padding: 30px;
   width: 100%;
   box-shadow: 0 0 24px 0 rgb(0 0 0 / 12%);
