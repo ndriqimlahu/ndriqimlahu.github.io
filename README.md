@@ -25,6 +25,7 @@
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
+    <li><a href="#usage">Usage</a></li>
     <li><a href="#license">License</a></li>
   </ol>
 </details>
@@ -46,6 +47,15 @@ This portfolio website is based on technologies like below:
 * CSS3
 * Bootstrap
 * JavaScript
+
+
+<!-- USAGE -->
+## Usage
+
+There you can see some useful additional screenshots of how the project looks like and how can be used.
+
+* Home page (Home Section)
+<img src="https://raw.githubusercontent.com/ndriqimlahu/ndriqim-lahu-portfolio/main/preview/01-Home%20page%20(Home%20Section).png">
 
 
 <!-- LICENSE -->
