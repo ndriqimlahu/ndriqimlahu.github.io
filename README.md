@@ -1,16 +1,16 @@
 <!-- PROJECT LOGO -->
 <p align="center">
-  <img src="https://github.com/ndriqimlahu/ndriqim-lahu-portfolio/blob/main/assets/portfolio/NdriqimLahuPortfolio.png" alt="Logo" width="250" height="250">
-  <h3 align="center">Ndriçim Lahu Portfolio</h3>
+  <img src="https://github.com/ndriqimlahu/ndriqim-lahu-portfolio/blob/main/assets/portfolio/NdriçimLahu.png" alt="Logo" width="250" height="250">
+  <h3 align="center">Ndriçim Lahu</h3>
   <p align="center">
     Ndriçim Lahu
     <br>
     <br>
     <a href="https://ndriqimlahu.ml">View Website</a>
     ·
-    <a href="https://github.com/ndriqimlahu/ndriqim-lahu-portfolio/issues">Report Bug</a>
+    <a href="https://github.com/ndriqimlahu/ndriqim-lahu/issues">Report Bug</a>
     ·
-    <a href="https://github.com/ndriqimlahu/ndriqim-lahu-portfolio/issues">Request Feature</a>
+    <a href="https://github.com/ndriqimlahu/ndriqim-lahu/issues">Request Feature</a>
   </p>
 </p>
 
@@ -55,7 +55,7 @@ This website is based on technologies like below:
 There you can see some useful additional screenshots of how the project looks like and how can be used.
 
 * Home page (Home Section)
-<img src="https://raw.githubusercontent.com/ndriqimlahu/ndriqim-lahu-portfolio/main/preview/01-Home%20page%20(Home%20Section).png">
+<img src="https://raw.githubusercontent.com/ndriqimlahu/ndriqim-lahu/main/preview/01-Home%20page%20(Home%20Section).png">
 
 
 <!-- LICENSE -->
