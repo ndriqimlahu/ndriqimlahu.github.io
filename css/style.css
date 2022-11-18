@@ -348,7 +348,7 @@ section {
 .skills .progress .skill {
   padding: 0;
   margin: 0 0 6px 0;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   display: block;
   font-weight: 600;
   font-family: "Open Sans", sans-serif;
@@ -956,6 +956,9 @@ section {
   }
   #home p {
     font-size: 25px;
+  }
+  .progress-bar {
+    width: 100% !important;
   }
 }
 @media (max-width: 520px) {
