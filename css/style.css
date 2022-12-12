@@ -375,10 +375,11 @@ section {
 # Resume
 --------------------------------------------------------------*/
 .resume .resume-title {
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 700;
   margin-top: 20px;
   margin-bottom: 20px;
+  text-transform: uppercase;
   /*color: #050d18;*/
 }
 .resume .resume-item {
@@ -391,7 +392,6 @@ section {
   line-height: 18px;
   font-size: 18px;
   font-weight: 600;
-  text-transform: uppercase;
   font-family: "Open Sans", sans-serif;
   /*color: #050d18;*/
   margin-bottom: 10px;
