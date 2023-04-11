@@ -529,13 +529,13 @@ section {
 .portfolio .portfolio-status {
   color: #ffffff;
   background: #e41655;
-  width: 200px;
+  width: 180px; /* REVERT CHANGES by changing value to 200px */
   z-index: 1;
   position: absolute;
-  top: 18px;
-  right: -68px;
+  top: 8px; /* REVERT CHANGES by changing value to 18px */
+  right: -70px;
   transform: rotate(45deg);
-  padding: 1px 0 3px 0;
+  padding: 3px 0 3px 0;
   font-size: 14px;
   text-align: center;
 }
