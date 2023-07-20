@@ -6,7 +6,7 @@
     Ndriçim Lahu
     <br>
     <br>
-    <a href="https://ndriqimlahu.ml">View Website</a>
+    <a href="https://ndriqimlahu.github.io">View Website</a>
     ·
     <a href="https://github.com/ndriqimlahu/ndriqim-lahu/issues">Report Bug</a>
     ·
