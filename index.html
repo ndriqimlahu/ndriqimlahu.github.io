@@ -40,7 +40,10 @@
     />
 
     <!-- Google Search Console / Site Verification -->
-    <meta name="google-site-verification" content="iKWXN__TT82qlY4-B5BZ2JnlLP08VJuP52abes9JoQs" />
+    <meta
+      name="google-site-verification"
+      content="iKWXN__TT82qlY4-B5BZ2JnlLP08VJuP52abes9JoQs"
+    />
 
     <!-- Favicons -->
     <link
@@ -1935,22 +1938,70 @@
             <h2>Contact</h2>
           </div>
 
-          <div class="row">
-            <div
-              class="col-lg-10 d-flex align-items-stretch"
-              data-aos="fade-up"
-              data-aos-delay="100"
-            >
-              <div class="info">
-                <iframe
-                  src="https://docs.google.com/forms/d/e/1FAIpQLSd4CMzDnRbrlb58WCsh9ipA30zjRbIHurPUWSedzoxKkcNlSg/viewform?embedded=true"
-                  title="Contact"
-                  class="contact-frame"
-                  frameborder="0"
-                  marginheight="0"
-                  marginwidth="0"
-                ></iframe>
-              </div>
+          <div class="row" data-aos="fade-in">
+            <div class="col-lg-12 mt-5 mt-lg-0 d-flex align-items-stretch">
+              <form
+                action="#"
+                method="post"
+                role="form"
+                class="contact-form"
+              >
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <label for="name">Full Name</label>
+                    <input
+                      type="text"
+                      name="name"
+                      title="full_name"
+                      id="name"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="name">Email Address</label>
+                    <input
+                      type="email"
+                      name="email"
+                      title="email_address"
+                      id="email"
+                      class="form-control"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="name">Subject</label>
+                  <input
+                    type="text"
+                    name="subject"
+                    title="subject_title"
+                    id="subject"
+                    class="form-control"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="name">Message</label>
+                  <textarea
+                    name="message"
+                    title="message_content"
+                    class="form-control"
+                    rows="8"
+                    required
+                  ></textarea>
+                </div>
+                <div class="my-3">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">
+                    Your message has been sent. Thank you!
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button type="submit">Send Message</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
