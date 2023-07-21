@@ -20,12 +20,12 @@ function disableRightClick() {
 window.onload = disableRightClick();
 
 // It disable the keyboard Control & Function keys to prevent from opening Source Code
-function disableShortcutKey() {
-	document.addEventListener("keydown", (e) => {
-	  if (e.ctrlKey || (e.keyCode>=112 && e.keyCode<=123)) {
-		e.stopPropagation();
-		e.preventDefault();
-	  }
-	});
-}
-window.onload = disableShortcutKey();
+// function disableShortcutKey() {
+// 	document.addEventListener("keydown", (e) => {
+// 		if (e.ctrlKey || (e.keyCode>=112 && e.keyCode<=123)) {
+// 		e.stopPropagation();
+// 		e.preventDefault();
+// 		}
+// 	});
+// }
+// window.onload = disableShortcutKey();
