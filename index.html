@@ -1944,6 +1944,7 @@
                 action="#"
                 method="post"
                 role="form"
+                id="contact-form"
                 class="contact-form"
               >
                 <div class="row">
@@ -1952,8 +1953,8 @@
                     <input
                       type="text"
                       name="name"
-                      title="full_name"
-                      id="name"
+                      title="Full Name"
+                      id="full-name"
                       class="form-control"
                       required
                     />
@@ -1963,8 +1964,8 @@
                     <input
                       type="email"
                       name="email"
-                      title="email_address"
-                      id="email"
+                      title="Email Address"
+                      id="email-address"
                       class="form-control"
                       required
                     />
@@ -1975,8 +1976,8 @@
                   <input
                     type="text"
                     name="subject"
-                    title="subject_title"
-                    id="subject"
+                    title="Subject Title"
+                    id="subject-title"
                     class="form-control"
                     required
                   />
@@ -1985,7 +1986,8 @@
                   <label for="name">Message</label>
                   <textarea
                     name="message"
-                    title="message_content"
+                    title="Message Content"
+                    id="message-content"
                     class="form-control"
                     rows="8"
                     required
@@ -1999,7 +2001,7 @@
                   </div>
                 </div>
                 <div class="text-center">
-                  <button type="submit">Send Message</button>
+                  <button type="submit" class="submit-btn">Send</button>
                 </div>
               </form>
             </div>
@@ -2036,8 +2038,12 @@
       <i class="bi bi-arrow-up-short"></i>
     </a>
 
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
     <!-- Custom JS -->
     <script src="./js/script.js"></script>
+    <script src="./js/email.js"></script>
 
     <!-- Plugin JS -->
     <script src="./vendor/aos/aos.js"></script>
