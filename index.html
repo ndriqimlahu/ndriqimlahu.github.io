@@ -1949,59 +1949,84 @@
               >
                 <div class="row">
                   <div class="form-group col-md-6">
-                    <label for="name">Full Name</label>
+                    <label for="full-name">Full Name</label>
                     <input
                       type="text"
-                      name="name"
+                      name="full-name"
                       title="Full Name"
                       id="full-name"
                       class="form-control"
+                      placeholder="Your Full Name"
+                      autocomplete="off"
                       required
                     />
+                    <span class="error-message" id="full-name-error"
+                      >Please enter a valid full name and meet the length requirements of 8 to 32 characters!</span
+                    >
+                    <span class="error-message" id="full-name-code-error"
+                      >Please remove code or scripting from the field!</span
+                    >
                   </div>
                   <div class="form-group col-md-6">
-                    <label for="name">Email Address</label>
+                    <label for="email">Email Address</label>
                     <input
                       type="email"
                       name="email"
                       title="Email Address"
-                      id="email-address"
+                      id="email"
                       class="form-control"
+                      placeholder="someone@example.com"
+                      autocomplete="off"
                       required
                     />
+                    <span class="error-message" id="email-error"
+                      >Please enter a valid email address and meet the length requirements of 14 to 64 characters!</span
+                    >
+                    <span class="error-message" id="email-code-error"
+                      >Please remove code or scripting from the field!</span
+                    >
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="name">Subject</label>
+                  <label for="subject">Subject</label>
                   <input
                     type="text"
                     name="subject"
-                    title="Subject Title"
-                    id="subject-title"
+                    title="Subject"
+                    id="subject"
                     class="form-control"
+                    placeholder="Type your subject..."
+                    autocomplete="off"
                     required
                   />
+                  <span class="error-message" id="subject-error"
+                    >Please fill in the subject correctly and meet the length requirements of 14 to 128 characters!</span
+                  >
+                  <span class="error-message" id="subject-code-error"
+                    >Please remove code or scripting from the field!</span
+                  >
                 </div>
                 <div class="form-group">
-                  <label for="name">Message</label>
+                  <label for="message">Message</label>
                   <textarea
+                    rows="4"
                     name="message"
-                    title="Message Content"
-                    id="message-content"
+                    title="Message"
+                    id="message"
                     class="form-control"
-                    rows="8"
+                    placeholder="Type your message..."
+                    autocomplete="off"
                     required
                   ></textarea>
-                </div>
-                <div class="my-3">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">
-                    Your message has been sent. Thank you!
-                  </div>
+                  <span class="error-message" id="message-error"
+                    >Please fill in the message correctly and meet the length requirements of 64 to 720 characters!</span
+                  >
+                  <span class="error-message" id="message-code-error"
+                    >Please remove code or scripting from the field!</span
+                  >
                 </div>
                 <div class="text-center">
-                  <button type="submit" class="submit-btn">Send</button>
+                  <button type="submit" class="submit-btn">Submit</button>
                 </div>
               </form>
             </div>
@@ -2039,11 +2064,14 @@
     </a>
 
     <!-- EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
 
     <!-- Custom JS -->
     <script src="./js/script.js"></script>
-    <script src="./js/email.js"></script>
+    <script src="./js/contact-form.js"></script>
 
     <!-- Plugin JS -->
     <script src="./vendor/aos/aos.js"></script>
@@ -2058,6 +2086,9 @@
 
     <!-- Main JS -->
     <script src="./js/main.js"></script>
+
+    <!-- Sweet Alert 2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Icon Pack JS -->
     <script src="https://kit.fontawesome.com/91e547386c.js"></script>
