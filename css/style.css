@@ -67,6 +67,9 @@ h1, h2, h3, h4, h5, h6 {
   background: #040b14;
   overflow-y: auto;
   border: 1px solid #071424;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 #header .profile img {
   margin: 15px auto;
@@ -191,6 +194,9 @@ h1, h2, h3, h4, h5, h6 {
   background: url("../assets/gallery/cover-img2.jpg") center;
   background-size: cover;
   box-shadow: 0 0 75px 25px black inset;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 #home:before {
   content: "";
@@ -430,11 +436,14 @@ section {
   width: 75px;
   height: 75px;
 }
-#work-projects-1 {
+.resume .resume-item .work-projects {
   display: inline-flex;
   flex-wrap: wrap;
   justify-content: space-around;
   padding: initial;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 /*--------------------------------------------------------------
@@ -451,6 +460,9 @@ section {
   background: #eeeeee;
   border-radius: 50px;
   padding: 2px 15px;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .portfolio #portfolio-filters li {
   cursor: pointer;
@@ -477,6 +489,9 @@ section {
   z-index: 1;
   border: 1px solid #000;
   border-radius: 20px;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .portfolio .portfolio-wrap::before {
   content: "";
@@ -875,6 +890,9 @@ section {
   color: #fff;
   transition: 0.4s;
   border-radius: 4px;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .contact .contact-form button[type=submit]:hover {
   background: #e2376a;
