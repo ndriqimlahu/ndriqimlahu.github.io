@@ -886,7 +886,8 @@ section {
 .contact .contact-form button[type=submit] {
   background: #e41655;
   border: 0;
-  padding: 16px 128px;
+  padding: 15px 150px;
+  margin: 15px 0 5px 0;
   color: #fff;
   transition: 0.4s;
   border-radius: 4px;
@@ -982,6 +983,13 @@ section {
 @media (min-width: 1024px) {
   #home {
     background-attachment: scroll;
+  }
+}
+@media (max-width: 991px) {
+  .contact .contact-form button[type=submit] {
+    display: block;
+    width: 100%;
+    padding: 15px 30px;
   }
 }
 @media (max-width: 790px) {
