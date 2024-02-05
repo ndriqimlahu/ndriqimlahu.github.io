@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (
       value.length >= 8 &&
       value.length <= 32 &&
-      /^[A-Za-z ]+$/.test(value) &&
+      /^[A-Za-zÀ-ÖØ-öø-ÿ ]+$/.test(value) &&
       value.includes(" ")
     ) {
       input.style.borderColor = "#18d26e";
@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (
       value.length >= 14 &&
       value.length <= 128 &&
-      /^[A-Za-z ]+$/.test(value)
+      /^[A-Za-zÀ-ÖØ-öø-ÿ ]+$/.test(value)
     ) {
       input.style.borderColor = "#18d26e";
       if (error) {
