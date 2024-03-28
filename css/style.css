@@ -294,6 +294,10 @@ section {
 .about .content p:last-child {
   margin-bottom: 0;
 }
+.about #cover-image {
+  border-radius: 16px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
 
 /*--------------------------------------------------------------
 # Facts
@@ -432,9 +436,21 @@ section {
 }
 .resume .resume-item .resume-image {
   border: 1px solid #000;
-  border-radius: 5px;
+  border-radius: 8px;
   width: 75px;
   height: 75px;
+  transition: all 0.3s ease 0s;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 3px 6px;
+}
+.resume .resume-item .resume-image:hover {
+  transform: scale(1.1);
+}
+.resume .resume-item .resume-btn {
+  border-radius: 8px;
+  transition: all 0.3s ease 0s;
+}
+.resume .resume-item .resume-btn:hover {
+  transform: scale(1.08);
 }
 .resume .resume-item .work-projects {
   display: inline-flex;
@@ -463,6 +479,7 @@ section {
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .portfolio #portfolio-filters li {
   cursor: pointer;
@@ -488,10 +505,14 @@ section {
   overflow: hidden;
   z-index: 1;
   border: 1px solid #000;
-  border-radius: 20px;
+  border-radius: 16px;
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.portfolio .portfolio-wrap:hover {
+  transform: scale(1.04);
 }
 .portfolio .portfolio-wrap::before {
   content: "";
@@ -544,10 +565,10 @@ section {
 .portfolio .portfolio-status {
   color: #ffffff;
   background: #e41655;
-  width: 180px; /* REVERT CHANGES by changing value to 200px */
+  width: 180px;
   z-index: 1;
   position: absolute;
-  top: 8px; /* REVERT CHANGES by changing value to 18px */
+  top: 8px;
   right: -70px;
   transform: rotate(45deg);
   padding: 3px 0 3px 0;
@@ -819,7 +840,7 @@ section {
   box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
 }
 .contact .contact-form .form-control:hover {
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 }
 .contact .contact-form .validate {
   display: none;
@@ -889,7 +910,7 @@ section {
   padding: 15px 150px;
   margin: 15px 0 5px 0;
   color: #fff;
-  transition: 0.4s;
+  transition: all 0.3s ease 0s;
   border-radius: 4px;
   -webkit-user-select: none;
   -ms-user-select: none;
@@ -897,6 +918,7 @@ section {
 }
 .contact .contact-form button[type=submit]:hover {
   background: #e2376a;
+  transform: scale(1.08);
 }
 @keyframes animate-loading {
   0% {
