@@ -43,8 +43,9 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 0;
 }
 .back-to-top:hover {
-  background: #e41655;
   color: #fff;
+  background: #e41655;
+  transform: scale(1.04);
 }
 .back-to-top.active {
   visibility: visible;
@@ -177,6 +178,9 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 50px;
   cursor: pointer;
 }
+.mobile-nav-toggle:hover {
+  transform: scale(1.04);
+}
 
 .mobile-nav-active {
   overflow: hidden;
@@ -296,7 +300,11 @@ section {
 }
 .about #cover-image {
   border-radius: 16px;
+  transition: 0.3s;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.about #cover-image:hover {
+  transform: scale(1.04);
 }
 
 /*--------------------------------------------------------------
@@ -308,7 +316,12 @@ section {
 .facts .count-box {
   padding: 30px;
   width: 100%;
+  border-radius: 8px;
+  transition: all 0.3s ease 0s;
   box-shadow: 0 0 24px 0 rgb(0 0 0 / 12%);
+}
+.facts .count-box:hover {
+  transform: scale(1.04);
 }
 .facts .count-box i {
   display: block;
@@ -353,12 +366,17 @@ section {
   display: block;
   background: none;
   border-radius: 0;
+  transition: all 0.3s ease 0s;
+}
+.skills .progress:hover {
+  transform: scale(1.02);
 }
 .skills .progress .skill {
   padding: 0;
   margin: 0 0 6px 0;
   /* text-transform: uppercase; */
   display: block;
+  font-size: 1.2em;
   font-weight: 600;
   font-family: "Open Sans", sans-serif;
   /*color: #050d18;*/
@@ -373,11 +391,11 @@ section {
 }
 .skills .progress-bar {
   background-color: #e41655;
-  width: 1px;
-  height: 10px;
+  height: 2px;
   transition: 0.9s;
   border: 1px solid #e40044;
-  border-radius: 12px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 /*--------------------------------------------------------------
@@ -443,14 +461,14 @@ section {
   box-shadow: rgba(0, 0, 0, 0.25) 0 3px 6px;
 }
 .resume .resume-item .resume-image:hover {
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 .resume .resume-item .resume-btn {
   border-radius: 8px;
   transition: all 0.3s ease 0s;
 }
 .resume .resume-item .resume-btn:hover {
-  transform: scale(1.08);
+  transform: scale(1.04);
 }
 .resume .resume-item .work-projects {
   display: inline-flex;
@@ -631,6 +649,16 @@ section {
 }
 
 /*--------------------------------------------------------------
+# Contributions
+--------------------------------------------------------------*/
+#github-chart {
+  transition: all 0.3s ease 0s;
+}
+#github-chart:hover {
+  transform: scale(1.02);
+}
+
+/*--------------------------------------------------------------
 # Services
 --------------------------------------------------------------*/
 .personal-services {
@@ -642,7 +670,11 @@ section {
   margin-bottom: 20px;
   padding: 30px;
   width: 100%;
+  transition: all 0.3s ease 0s;
   box-shadow: 0 0 24px 0 rgb(0 0 0 / 12%);
+}
+.services .icon-box:hover {
+  transform: scale(1.04);
 }
 .services .icon {
   float: left;
@@ -836,6 +868,7 @@ section {
 .contact .contact-form {
   width: 100%;
   padding: 30px;
+  border-radius: 8px;
   /* background: #fff; */
   box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
 }
@@ -911,14 +944,14 @@ section {
   margin: 15px 0 5px 0;
   color: #fff;
   transition: all 0.3s ease 0s;
-  border-radius: 4px;
+  border-radius: 8px;
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
 .contact .contact-form button[type=submit]:hover {
   background: #e2376a;
-  transform: scale(1.08);
+  transform: scale(1.04);
 }
 @keyframes animate-loading {
   0% {
@@ -1013,6 +1046,9 @@ section {
     width: 100%;
     padding: 15px 30px;
   }
+  .skills .progress .skill {
+    font-size: 1.0em;
+  }
 }
 @media (max-width: 790px) {
   #home {
@@ -1037,6 +1073,9 @@ section {
   }
   .breadcrumbs ol li {
     display: inline-block;
+  }
+  .skills .progress .skill {
+    font-size: 0.82em;
   }
 }
 @media (max-width: 690px) {
@@ -1082,6 +1121,14 @@ section {
   }
   .progress-bar {
     width: 100% !important;
+  }
+}
+@media (max-width: 575px) {
+  .skills .progress {
+    text-align: center;
+  }
+  .skills .progress .skill {
+    font-size: 1.15em;
   }
 }
 @media (max-width: 520px) {
