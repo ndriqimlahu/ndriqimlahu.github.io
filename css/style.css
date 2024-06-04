@@ -109,14 +109,12 @@ h1, h2, h3, h4, h5, h6 {
   color: #fff;
   text-decoration: none;
 }
-
+#main {
+  margin-left: 300px;
+}
 .dark-mode {
   color: #A8A9B4;
   background-color: #28292A;
-}
-
-#main {
-  margin-left: 300px;
 }
 
 /*--------------------------------------------------------------
@@ -156,7 +154,6 @@ h1, h2, h3, h4, h5, h6 {
 .nav-menu a:hover i, .nav-menu .active i, .nav-menu .active:focus i, .nav-menu li:hover > a i {
   color: #e41655;
 }
-
 /* Mobile Navigation */
 .mobile-nav-toggle {
   position: fixed;

@@ -1,13 +1,15 @@
 // Toggle for Dark Mode and Light Mode with Icon Change
-function toggleMode(lightMode) {
+function toggleMode(switchMode) {
+  var switchMode = document.getElementById("switchModeBtn");
   var darkMode = document.body;
+  switchMode.classList.toggle("fa-moon");
   darkMode.classList.toggle("dark-mode");
-  lightMode.classList.toggle("fa-sun");
+  switchMode.classList.toggle("fa-sun");
 }
 
 // It gets the actual year and then appears inside of the specific id selector
 function copyrightYear() {
-  document.querySelector('#copyright-year').innerText = new Date().getFullYear();
+  document.querySelector("#copyright-year").innerText = new Date().getFullYear();
 }
 window.onload = copyrightYear();
 
