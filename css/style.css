@@ -270,9 +270,20 @@ section {
 # About
 --------------------------------------------------------------*/
 .about .content h3 {
-  font-weight: 700;
+  color: #050d18;
+  font-weight: 800;
   font-size: 26px;
-  color: #e40044;
+}
+.dark-mode .about .content h3 {
+  color: #A8A9B4;
+}
+.about .content h5 {
+  color: #050d18;
+  font-weight: 400;
+  font-size: 20px;
+}
+.dark-mode .about .content h5 {
+  color: #A8A9B4;
 }
 .about .content ul {
   list-style: none;
@@ -287,9 +298,9 @@ section {
   margin-right: 10px;
 }
 .about .content ul i {
+  color: #e41655;
   font-size: 16px;
   margin-right: 5px;
-  color: #e41655;
   line-height: 0;
 }
 .about .content p:last-child {
@@ -317,6 +328,9 @@ section {
   transition: all 0.3s ease 0s;
   box-shadow: 0 0 24px 0 rgb(0 0 0 / 12%);
 }
+.dark-mode .facts .count-box {
+  background: #323232;
+}
 .facts .count-box:hover {
   transform: scale(1.04);
 }
@@ -328,19 +342,24 @@ section {
   line-height: 0;
 }
 .facts .count-box span {
+  color: #050d18;
   font-size: 48px;
   line-height: 40px;
   display: block;
   font-weight: 700;
-  /*color: #050d18;*/
   margin-left: 60px;
 }
+.dark-mode .facts .count-box span {
+  color: #A8A9B4;
+}
 .facts .count-box p {
+  color: #071424;
   padding: 15px 0 0 0;
-  /*margin: 0 0 0 60px;*/
   font-family: "Open Sans", sans-serif;
   font-size: 12px;
-  /*color: #e41655;*/
+}
+.dark-mode .facts .count-box p {
+  color: #A8A9B4;
 }
 .facts .count-box a {
   font-weight: 600;
@@ -369,14 +388,16 @@ section {
   transform: scale(1.02);
 }
 .skills .progress .skill {
+  color: #050d18;
   padding: 0;
   margin: 0 0 6px 0;
-  /* text-transform: uppercase; */
   display: block;
   font-size: 1.2em;
   font-weight: 600;
   font-family: "Open Sans", sans-serif;
-  /*color: #050d18;*/
+}
+.dark-mode .skills .progress .skill {
+  color: #A8A9B4;
 }
 .skills .progress .skill .val {
   float: right;
@@ -399,12 +420,15 @@ section {
 # Resume
 --------------------------------------------------------------*/
 .resume .resume-title {
+  color: #050d18;
   font-size: 22px;
   font-weight: 700;
   margin-top: 20px;
   margin-bottom: 20px;
   text-transform: uppercase;
-  /*color: #050d18;*/
+}
+.dark-mode .resume .resume-title {
+  color: #A8A9B4;
 }
 .resume .resume-item {
   padding: 0 0 20px 20px;
@@ -413,20 +437,26 @@ section {
   position: relative;
 }
 .resume .resume-item h4 {
+  color: #050d18;
   line-height: 18px;
   font-size: 18px;
   font-weight: 600;
-  font-family: "Open Sans", sans-serif;
-  /*color: #050d18;*/
   margin-bottom: 10px;
+  font-family: "Open Sans", sans-serif;
+}
+.dark-mode .resume .resume-item h4 {
+  color: #A8A9B4;
 }
 .resume .resume-item h5 {
+  background: #eaebf0;
   font-size: 16px;
-  /*background: #e4edf9;*/
   padding: 5px 15px;
   display: inline-block;
   font-weight: 600;
   margin-bottom: 10px;
+}
+.dark-mode .resume .resume-item h5 {
+  background: #323232;
 }
 .resume .resume-item ul {
   padding-left: 20px;
@@ -448,6 +478,9 @@ section {
   top: 0;
   background: #fff;
   border: 2px solid #e2376a;
+}
+.dark-mode .resume .resume-item::before {
+  background: #323232;
 }
 .resume .resume-item .resume-image {
   border: 1px solid #000;
@@ -496,6 +529,9 @@ section {
   user-select: none;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+.dark-mode .portfolio #portfolio-filters {
+  background: #323232;
+}
 .portfolio #portfolio-filters li {
   cursor: pointer;
   display: inline-block;
@@ -507,6 +543,9 @@ section {
   color: #272829;
   margin-bottom: 5px;
   transition: all 0.3s ease-in-out;
+}
+.dark-mode .portfolio #portfolio-filters li {
+  color: #A8A9B4;
 }
 .portfolio #portfolio-filters li:hover, .portfolio #portfolio-filters li.filter-active {
   color: #e2376a;
@@ -801,9 +840,9 @@ section {
   padding-bottom: 130px;
 }
 .contact .info {
-  padding: 30px;
-  /* background: #fff; */
+  background: #fff;
   width: 100%;
+  padding: 30px;
   box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
 }
 .contact .info i {
@@ -820,17 +859,23 @@ section {
   transition: all 0.3s ease-in-out;
 }
 .contact .info h4 {
+  color: #050d18;
   padding: 0 0 0 60px;
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 5px;
-  /* color: #050d18; */
+}
+.dark-mode .contact .info h4 {
+  color: #A8A9B4;
 }
 .contact .info p {
+  color: #050d18;
   padding: 0 0 10px 60px;
   margin-bottom: 20px;
   font-size: 14px;
-  /* color: #050d18; */
+}
+.dark-mode .contact .info p {
+  color: #A8A9B4;
 }
 .contact .info .email p {
   padding-top: 5px;
@@ -863,14 +908,32 @@ section {
   color: #fff;
 }
 .contact .contact-form {
+  background: #fff;
   width: 100%;
   padding: 30px;
   border-radius: 8px;
-  /* background: #fff; */
   box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+}
+.dark-mode .contact .contact-form {
+  background: #323232;
+}
+.contact .contact-form .form-control {
+  border-color: #cecece;
+}
+.dark-mode .contact .contact-form .form-control {
+  border-color: #6f7180;
 }
 .contact .contact-form .form-control:hover {
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+.dark-mode .contact .contact-form .form-control:hover {
+  box-shadow: 0 2px 15px rgba(255, 255, 255, 0.2);
+}
+.contact .contact-form .form-control:focus {
+  border-color: #323232;
+}
+.dark-mode .contact .contact-form .form-control:focus {
+  border-color: #dce8f8;
 }
 .contact .contact-form .validate {
   display: none;
@@ -927,6 +990,15 @@ section {
   border-radius: 0;
   box-shadow: none;
   font-size: 14px;
+}
+.dark-mode .contact .contact-form input,
+.dark-mode .contact .contact-form textarea {
+  color: #A8A9B4;
+  background: #323232;
+}
+.dark-mode .contact .contact-form input::placeholder, 
+.dark-mode .contact .contact-form textarea::placeholder {
+  color: #959595;
 }
 .contact .contact-form input {
   height: 44px;

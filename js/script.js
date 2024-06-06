@@ -1,10 +1,21 @@
-// Toggle for Dark Mode and Light Mode with Icon Change
-function toggleMode(switchMode) {
-  var switchMode = document.getElementById("switchModeBtn");
-  var darkMode = document.body;
-  switchMode.classList.toggle("fa-moon");
-  darkMode.classList.toggle("dark-mode");
-  switchMode.classList.toggle("fa-sun");
+// Toggles the theme between Light and Dark mode, and updates the icon accordingly
+function switchTheme() {
+  var switchModeBtn = document.getElementById("switchModeBtn");
+  var bodyPage = document.body;
+  
+  // Toggle dark mode in the body of the page
+  bodyPage.classList.toggle("dark-mode");
+  
+  // Toggle icons and aria label based on the current theme
+  if (switchModeBtn.classList.contains("fa-moon")) {
+    switchModeBtn.classList.remove("fa-moon");
+    switchModeBtn.classList.add("fa-sun");
+    switchModeBtn.setAttribute("aria-label", "Switch to light mode");
+  } else {
+    switchModeBtn.classList.remove("fa-sun");
+    switchModeBtn.classList.add("fa-moon");
+    switchModeBtn.setAttribute("aria-label", "Switch to dark mode");
+  }
 }
 
 // It gets the actual year and then appears inside of the specific id selector
