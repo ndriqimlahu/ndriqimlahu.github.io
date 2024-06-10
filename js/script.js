@@ -1,7 +1,7 @@
 // Toggles the theme between Light and Dark mode, and updates the icon accordingly
 function switchTheme() {
-  var switchModeBtn = document.getElementById("switchModeBtn");
-  var bodyPage = document.body;
+  const switchModeBtn = document.getElementById("switchModeBtn");
+  const bodyPage = document.body;
   
   // Toggle dark mode in the body of the page
   bodyPage.classList.toggle("dark-mode");
