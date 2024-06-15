@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function() {
   // Get the all required Form elements from DOM
   const contactForm = document.querySelector("#contact-form");
   const inputFields = [
@@ -29,11 +29,11 @@ document.addEventListener("DOMContentLoaded", function () {
   ];
   const submitBtn = document.querySelector(".submit-btn");
 
-  // Validation of each Input Fields
+  // Validation of each input fields
   inputFields.forEach((field) => {
     field.input.addEventListener("input", function () {
-      const trimmedValue = field.input.value.trim();
-      if (trimmedValue === "") {
+      const inputValue = field.input.value.trim();
+      if (inputValue === "") {
         field.error.style.display = "none";
         field.codeError.style.display = "none";
         field.input.style.borderColor = "#DEE2E6";
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
         validateInput(field.input, field.error);
         if (field.codeError) {
           field.codeError.style.display = "none";
-          validateForCode(field.input, field.codeError);
+          validateScriptCode(field.input, field.codeError);
         }
 
         if (field.updateFunction) {
@@ -67,14 +67,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  function validateForCode(input, codeError) {
+  function validateScriptCode(input, codeError) {
     const forbiddenPatterns = [
       /<script[\s\S]*?<\/script>/i, // Matches <script>...</script> tags
       /<.*?>/g, // Matches any HTML tags
-      /\b(document\.|window\.|eval\(|alert\(|prompt\(|console\()/gi, // Matches common JavaScript functions
+      /\b(document\.|window\.|eval\(|alert\(|prompt\(|console\(|function\()/gi, // Matches common JavaScript functions
     ];
 
     const value = input.value;
+
     if (forbiddenPatterns.some((pattern) => pattern.test(value))) {
       codeError.style.display = "block";
       return false;
@@ -90,22 +91,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const validDomains = ["hotmail", "outlook", "live", "gmail", "yahoo"]; // Add valid top-level domains to the Regex pattern
     const tldPattern = "com|net|org"; // Add more TLDs as needed
-    const domainRegex = new RegExp(
-      `@(?:${validDomains.join("|")})\\.(?:${tldPattern})$`,
-      "i"
-    );
+    const domainRegex = new RegExp(`@(?:${validDomains.join("|")})\\.(?:${tldPattern})$`, "i");
 
     return domainRegex.test(emailValue);
   }
 
   function updateFullNameInputBorder(input, error) {
     const value = input.value.trim();
-    if (
-      value.length >= 8 &&
-      value.length <= 32 &&
-      /^[A-Za-zÀ-ÖØ-öø-ÿ ]+$/.test(value) &&
-      value.includes(" ")
-    ) {
+
+    if (value.length >= 8 && value.length <= 32 && /^[A-Za-zÀ-ÖØ-öø-ÿ ]+$/.test(value) && value.includes(" ")) {
       input.style.borderColor = "#18d26e";
       if (error) {
         error.style.display = "none";
@@ -122,10 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const value = input.value.trim();
     const validDomains = ["hotmail", "outlook", "live", "gmail", "yahoo"];
     const tldPattern = "com|net|org"; // Add more TLDs as needed
-    const domainRegex = new RegExp(
-      `@(?:${validDomains.join("|")})\\.(?:${tldPattern})$`,
-      "i"
-    );
+    const domainRegex = new RegExp(`@(?:${validDomains.join("|")})\\.(?:${tldPattern})$`, "i");
 
     if (value.length >= 14 && value.length <= 64 && domainRegex.test(value)) {
       input.style.borderColor = "#18d26e";
@@ -142,11 +133,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function updateSubjectInputBorder(input, error) {
     const value = input.value.trim();
-    if (
-      value.length >= 14 &&
-      value.length <= 128 &&
-      /^[A-Za-zÀ-ÖØ-öø-ÿ ]+$/.test(value)
-    ) {
+
+    if (value.length >= 14 && value.length <= 128 && /^[A-Za-zÀ-ÖØ-öø-ÿ ]+$/.test(value)) {
       input.style.borderColor = "#18d26e";
       if (error) {
         error.style.display = "none";
@@ -159,17 +147,17 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  function updateMessageTextareaBorder(textarea, error) {
-    const value = textarea.value.trim();
+  function updateMessageTextareaBorder(input, error) {
+    const value = input.value.trim();
     const charCount = value.length; // Calculate the character count
 
     if (charCount >= 64 && charCount <= 720) {
-      textarea.style.borderColor = "#18d26e";
+      input.style.borderColor = "#18d26e";
       if (error) {
         error.style.display = "none";
       }
     } else {
-      textarea.style.borderColor = "#ed3c0d";
+      input.style.borderColor = "#ed3c0d";
       if (error) {
         error.style.display = "block";
       }
@@ -196,7 +184,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const charCount = messageInput.value.length;
 
-    // Validate all fields
+    // Validate all fields for validity
     let allFieldsValid = true;
     for (const field of inputFields) {
       if (!field.input.validity.valid) {
@@ -212,22 +200,17 @@ document.addEventListener("DOMContentLoaded", function () {
       emailError.style.display = "block";
     }
 
-    // Validate the code error for all fields
+    // Validate all fields for scripting code
     let allCodeFieldsValid = true;
     for (const field of inputFields) {
-      if (!validateForCode(field.input, field.codeError)) {
+      if (!validateScriptCode(field.input, field.codeError)) {
         allCodeFieldsValid = false;
       }
     }
 
-    if (
-      allFieldsValid &&
-      charCount >= 64 &&
-      charCount <= 720 &&
-      allCodeFieldsValid
-    ) {
+    if (allFieldsValid && charCount >= 64 && charCount <= 720 && allCodeFieldsValid) {
       // Change the Submit button text
-      submitBtn.innerText = "Just a moment...";
+      submitBtn.innerText = "Sending...";
 
       // Get the all input field values
       const inputValues = {
@@ -238,46 +221,41 @@ document.addEventListener("DOMContentLoaded", function () {
       };
 
       // Send the email using EmailJS
-      emailjs.send(serviceId, templateId, inputValues).then(
-        () => {
-          // Display an modal popup, if the form has submitted successfully
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Form has been submitted successfully!",
-            text: "You will receive an answer soon.",
-            showConfirmButton: false,
-            timer: 3000,
-          });
-          // Reload the Contact form after submitting
-          setTimeout(function () {
-            window.location.reload();
-          }, 5000);
-        },
-        (error) => {
-          // Display an modal popup, if the form cannot be submitted due to errors
-          Swal.fire({
-            position: "center",
-            icon: "error",
-            title: "An error occurred and the form submission failed!",
-            text: "Please try again later until the problem is resolved.",
-            showConfirmButton: false,
-            timer: 6000,
-          });
-          // Catch the error in Console log
-          console.log(error);
-          // Change the Submit button text
-          submitBtn.innerText = "Failed to Send";
-          // Reset the border color to invalid color for all input fields
-          for (const field of inputFields) {
-            field.input.style.borderColor = "#ed3c0d";
-          }
-          // Reload the Contact form after submitting
-          setTimeout(function () {
-            window.location.reload();
-          }, 8000);
+      emailjs.send(serviceId, templateId, inputValues).then(() => {
+        // Display an modal popup, if the form has submitted successfully
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Form has been submitted successfully!",
+          text: "You will receive an answer soon.",
+          showConfirmButton: false,
+          timer: 3000,
+        });
+        // Change the Submit button text
+        submitBtn.innerText = "Sent successfully";
+        // Reload the Contact form after submitting
+        setTimeout(() => window.location.reload(), 4000);
+      }, (error) => {
+        // Display an modal popup, if the form cannot be submitted due to errors
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "An error occurred and the form submission failed!",
+          text: "Please try again later until the problem is resolved.",
+          showConfirmButton: false,
+          timer: 6000,
+        });
+        // Catch the error in Console log
+        console.log("Error while sending the email: ", error);
+        // Change the Submit button text
+        submitBtn.innerText = "Sending failed!";
+        // Reset the border color to invalid color for all input fields
+        for (const field of inputFields) {
+          field.input.style.borderColor = "#ed3c0d";
         }
-      );
+        // Reload the Contact form after submitting
+        setTimeout(() => window.location.reload(), 8000);
+      });
     }
   });
 });

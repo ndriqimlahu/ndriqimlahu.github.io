@@ -22,7 +22,7 @@ function switchTheme() {
   }
 }
 
-// Load the selected theme saved from localStorage
+// Use the selected theme stored by localStorage
 function loadTheme() {
   const switchModeBtn = document.getElementById("switchModeBtn");
   const bodyPage = document.body;
@@ -49,17 +49,21 @@ window.onload = loadTheme();
 function copyrightYear() {
   document.querySelector("#copyright-year").innerText = new Date().getFullYear();
 }
+
+// Load the copyright year when the page is loaded
 window.onload = copyrightYear();
 
-// It disable the mouse Right-Click to prevent from opening Context Menu
+// Disable right-click to prevent the context menu from opening
 // function disableRightClick() {
 // 	document.addEventListener("contextmenu", (e) => {
 // 		e.preventDefault();
 // 	}, false);
 // }
+
+// Load the disable right-click when the page is loaded
 // window.onload = disableRightClick();
 
-// It disable the keyboard Control & Function keys to prevent from opening Source Code
+// Disable keyboard control and function keys to prevent opening the source code
 // function disableShortcutKey() {
 // 	document.addEventListener("keydown", (e) => {
 // 		if (e.ctrlKey || (e.keyCode>=112 && e.keyCode<=123)) {
@@ -68,4 +72,6 @@ window.onload = copyrightYear();
 // 		}
 // 	});
 // }
+
+// Load the disable shortcut key when the page is loaded
 // window.onload = disableShortcutKey();
