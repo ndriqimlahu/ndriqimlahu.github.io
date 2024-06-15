@@ -4,19 +4,16 @@
 body {
   font-family: "Open Sans", sans-serif;
   color: #272829;
-  transition: color 0.1s;
+  transition: background-color 0.3s, color 0.3s;
 }
-
 a {
   color: #e41655;
   text-decoration: none;
 }
-
 a:hover {
   color: #e2376a;
   text-decoration: none;
 }
-
 h1, h2, h3, h4, h5, h6 {
   font-family: "Open Sans", sans-serif;
 }
