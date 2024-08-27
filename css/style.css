@@ -453,6 +453,17 @@ section {
 .dark-mode .resume .resume-item h5 {
   background: #323232;
 }
+.resume .resume-item h6 {
+  color: #050d18;
+  line-height: 18px;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-family: "Open Sans", sans-serif;
+}
+.dark-mode .resume .resume-item h6 {
+  color: #A8A9B4;
+}
 .resume .resume-item ul {
   padding-left: 20px;
   list-style-type: none;
@@ -503,6 +514,12 @@ section {
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+.resume .resume-item .work-skills {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: initial;
 }
 /*--------------------------------------------------------------
 # Portfolio
