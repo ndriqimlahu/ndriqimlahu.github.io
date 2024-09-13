@@ -625,7 +625,7 @@ section {
   opacity: 1;
   bottom: 0;
 }
-.portfolio .portfolio-status {
+.portfolio .portfolio-badge {
   color: #ffffff;
   background: #e41655;
   width: 180px;
