@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-# General
+# Global
 --------------------------------------------------------------*/
 body {
   font-family: "Open Sans", sans-serif;
@@ -18,7 +18,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Open Sans", sans-serif;
 }
 /*--------------------------------------------------------------
-# Back to top button
+# Back to Top button
 --------------------------------------------------------------*/
 .back-to-top {
   position: fixed;
@@ -48,7 +48,7 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 1;
 }
 /*--------------------------------------------------------------
-# Header
+# Header section
 --------------------------------------------------------------*/
 #header {
   position: fixed;
@@ -112,7 +112,7 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #28292A;
 }
 /*--------------------------------------------------------------
-# Navigation Menu
+# Navigation Menu section
 --------------------------------------------------------------*/
 /* Desktop Navigation */
 .nav-menu {
@@ -178,7 +178,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
 }
 /*--------------------------------------------------------------
-# Home Section
+# Home section
 --------------------------------------------------------------*/
 #home {
   width: 100%;
@@ -189,11 +189,6 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
-.dark-mode #home {
-  background: url("../assets/gallery/cover-img2.jpg") center;
-  background-size: cover;
-  filter: grayscale(0.4);
 }
 #home:before {
   content: "";
@@ -230,7 +225,7 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom: 3px solid #e41655;
 }
 /*--------------------------------------------------------------
-# Sections General
+# Section content
 --------------------------------------------------------------*/
 section {
   padding: 40px 0;
@@ -261,7 +256,7 @@ section {
   margin-bottom: 0;
 }
 /*--------------------------------------------------------------
-# About
+# About section
 --------------------------------------------------------------*/
 .about .content h3 {
   color: #050d18;
@@ -309,7 +304,7 @@ section {
   transform: scale(1.04);
 }
 /*--------------------------------------------------------------
-# Facts
+# Facts section
 --------------------------------------------------------------*/
 .facts {
   padding-bottom: 30px;
@@ -367,7 +362,7 @@ section {
   color: #e2376a;
 }
 /*--------------------------------------------------------------
-# Digital Skills
+# Skills section
 --------------------------------------------------------------*/
 .skills .progress {
   height: 60px;
@@ -377,7 +372,7 @@ section {
   transition: all 0.3s ease 0s;
 }
 .skills .progress:hover {
-  transform: scale(1.02);
+  transform: scale(1.04);
 }
 .skills .progress .skill {
   color: #050d18;
@@ -407,12 +402,15 @@ section {
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-.skill-size {
+.skill-logo {
   width: 25px;
   height: 25px;
 }
+.skill-title {
+  margin: 0 6px 0 6px;
+}
 /*--------------------------------------------------------------
-# Resume
+# Resume section
 --------------------------------------------------------------*/
 .resume .resume-title {
   color: #050d18;
@@ -522,7 +520,7 @@ section {
   padding: initial;
 }
 /*--------------------------------------------------------------
-# Portfolio
+# Portfolio section
 --------------------------------------------------------------*/
 .portfolio .portfolio-item {
   margin-bottom: 30px;
@@ -641,7 +639,7 @@ section {
   text-align: center;
 }
 /*--------------------------------------------------------------
-# Portfolio Details
+# Portfolio Details section
 --------------------------------------------------------------*/
 .portfolio-details {
   padding-top: 40px;
@@ -707,7 +705,7 @@ section {
   padding: 0;
 }
 /*--------------------------------------------------------------
-# Contributions
+# Contributions section
 --------------------------------------------------------------*/
 #github-chart {
   transition: all 0.3s ease 0s;
@@ -716,7 +714,7 @@ section {
   transform: scale(1.02);
 }
 /*--------------------------------------------------------------
-# Services
+# Services section
 --------------------------------------------------------------*/
 .personal-services {
   display: flex;
@@ -783,7 +781,7 @@ section {
   font-size: 14px;
 }
 /*--------------------------------------------------------------
-# Testimonials
+# Testimonials section
 --------------------------------------------------------------*/
 .testimonials .testimonials-carousel, .testimonials .testimonials-slider {
   overflow: hidden;
@@ -860,7 +858,7 @@ section {
   background-color: #e2376a;
 }
 /*--------------------------------------------------------------
-# Contact
+# Contact section
 --------------------------------------------------------------*/
 .contact {
   padding-bottom: 130px;
@@ -1075,7 +1073,7 @@ section {
   }
 }
 /*--------------------------------------------------------------
-# Breadcrumbs
+# Breadcrumbs section
 --------------------------------------------------------------*/
 .breadcrumbs {
   padding: 20px 0;
@@ -1117,7 +1115,7 @@ section {
   color: #6f7180;
 }
 /*--------------------------------------------------------------
-# Footer
+# Footer section
 --------------------------------------------------------------*/
 #footer {
   padding: 15px;
