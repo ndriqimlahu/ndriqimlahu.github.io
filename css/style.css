@@ -303,33 +303,27 @@ section {
 .about #cover-image:hover {
   transform: scale(1.04);
 }
-/*--------------------------------------------------------------
-# Facts section
---------------------------------------------------------------*/
-.facts {
-  padding-bottom: 30px;
-}
-.facts .count-box {
+.about .count-box {
   padding: 30px;
   width: 100%;
   border-radius: 8px;
   transition: all 0.3s ease 0s;
   box-shadow: 0 0 24px 0 rgb(0 0 0 / 12%);
 }
-.dark-mode .facts .count-box {
+.dark-mode .about .count-box {
   background: #323232;
 }
-.facts .count-box:hover {
+.about .count-box:hover {
   transform: scale(1.04);
 }
-.facts .count-box i {
+.about .count-box i {
   display: block;
   font-size: 44px;
   color: #e41655;
   float: left;
   line-height: 0;
 }
-.facts .count-box span {
+.about .count-box span {
   color: #050d18;
   font-size: 48px;
   line-height: 40px;
@@ -337,19 +331,19 @@ section {
   font-weight: 700;
   margin-left: 60px;
 }
-.dark-mode .facts .count-box span {
+.dark-mode .about .count-box span {
   color: #A8A9B4;
 }
-.facts .count-box p {
+.about .count-box p {
   color: #071424;
   padding: 15px 0 0 0;
   font-family: "Open Sans", sans-serif;
   font-size: 12px;
 }
-.dark-mode .facts .count-box p {
+.dark-mode .about .count-box p {
   color: #A8A9B4;
 }
-.facts .count-box a {
+.about .count-box a {
   font-weight: 600;
   display: block;
   margin-top: 20px;
@@ -358,7 +352,7 @@ section {
   font-family: "Open Sans", sans-serif;
   transition: ease-in-out 0.3s;
 }
-.facts .count-box a:hover {
+.about .count-box a:hover {
   color: #e2376a;
 }
 /*--------------------------------------------------------------
