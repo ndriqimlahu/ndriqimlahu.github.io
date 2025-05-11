@@ -337,6 +337,7 @@ section {
 .about .count-box p {
   color: #071424;
   padding: 15px 0 0 0;
+  margin: 0 0 0 60px;
   font-family: "Open Sans", sans-serif;
   font-size: 12px;
 }
@@ -481,7 +482,7 @@ section {
   background: #cecece;
 }
 .resume .resume-item .resume-image {
-  border: 1px solid #000;
+  border: 1.5px solid #000;
   border-radius: 8px;
   width: 75px;
   height: 75px;
@@ -561,7 +562,7 @@ section {
   position: relative;
   overflow: hidden;
   z-index: 1;
-  border: 1px solid #000;
+  border: 1.5px solid #000;
   border-radius: 16px;
   -webkit-user-select: none;
   -ms-user-select: none;
@@ -621,16 +622,57 @@ section {
 }
 .portfolio .portfolio-badge {
   color: #ffffff;
-  background: #e41655;
-  width: 180px;
+  background: #E41655;
+  width: 200px;
   z-index: 1;
   position: absolute;
-  top: 8px;
+  top: 12px;
   right: -70px;
-  transform: rotate(45deg);
-  padding: 3px 0 3px 0;
+  transform: rotate(40deg);
+  padding: 5px 0 5px 0;
   font-size: 14px;
+  font-weight: 600;
   text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+.portfolio .solo-project {
+  color: #fff;
+  background: #4466AF;
+  width: 220px;
+  top: 22px;
+  right: -70px;
+}
+.portfolio .team-project {
+  color: #fff;
+  background: #B22222;
+  width: 220px;
+  top: 22px;
+  right: -70px;
+}
+.portfolio .work-project {
+  color: #fff;
+  background: #2D9F4F;
+  width: 220px;
+  top: 22px;
+  right: -70px;
+}
+.portfolio .open-source {
+  color: #000;
+  background: #FFD700;
+  width: 220px;
+  top: 22px;
+  right: -70px;
+}
+.portfolio .portfolio-btn {
+  color: #fff;
+  background: #e41655;
+  padding: 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease 0s;
+}
+.portfolio .portfolio-btn:hover {
+  background: #e2376a;
+  transform: scale(1.04);
 }
 /*--------------------------------------------------------------
 # Portfolio Details section
@@ -1077,9 +1119,9 @@ section {
   background: #323232;
 }
 .breadcrumbs h2 {
-  font-size: 26px;
-  font-weight: 300;
   color: #000 !important;
+  font-size: 26px;
+  font-weight: 500;
 }
 .dark-mode .breadcrumbs h2 {
   color: #cecece !important;
@@ -1155,6 +1197,10 @@ section {
   }
 }
 @media (max-width: 991px) {
+  .portfolio .explore-portfolio {
+    display: block;
+    width: 100%;
+  }
   .contact .contact-form .submit-btn {
     display: block;
     width: 100%;
