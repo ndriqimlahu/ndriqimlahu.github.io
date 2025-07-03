@@ -776,27 +776,43 @@
                   <div class="form-group col-md-6">
                     <label for="full-name">Full Name</label>
                     <input type="text" id="full-name" class="form-control" name="full-name" title="Full Name" placeholder="Your Full Name" autocomplete="off" required>
-                    <span class="error-message" id="full-name-error">Please enter a valid full name and meet the length requirements of 8 to 32 characters!</span>
-                    <span class="error-message" id="full-name-code-error">Please remove code or scripting from the field!</span>
+                    <span id="full-name-error" class="error-message" role="alert" aria-hidden="true">
+                      Please enter a valid full name and meet the length requirements of 8 to 32 characters!
+                    </span>
+                    <span id="full-name-code-error" class="error-message" role="alert" aria-hidden="true">
+                      Please remove code or scripting from the field!
+                    </span>
                   </div>
                   <div class="form-group col-md-6">
                     <label for="email">Email Address</label>
                     <input type="email" id="email" class="form-control" name="email" title="Email Address" placeholder="someone@example.com" autocomplete="off" required>
-                    <span class="error-message" id="email-error">Please enter a valid email address and meet the length requirements of 14 to 64 characters!</span>
-                    <span class="error-message" id="email-code-error">Please remove code or scripting from the field!</span>
+                    <span id="email-error" class="error-message" role="alert" aria-hidden="true">
+                      Please enter a valid email address and meet the length requirements of 14 to 64 characters!
+                    </span>
+                    <span id="email-code-error" class="error-message" role="alert" aria-hidden="true">
+                      Please remove code or scripting from the field!
+                    </span>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="subject">Subject</label>
                   <input type="text" id="subject" class="form-control" name="subject" title="Subject" placeholder="Type your subject..." autocomplete="off" required>
-                  <span class="error-message" id="subject-error">Please fill in the subject correctly and meet the length requirements of 14 to 128 characters!</span>
-                  <span class="error-message" id="subject-code-error">Please remove code or scripting from the field!</span>
+                  <span id="subject-error" class="error-message" role="alert" aria-hidden="true">
+                    Please fill in the subject correctly and meet the length requirements of 14 to 128 characters!
+                  </span>
+                  <span id="subject-code-error" class="error-message" role="alert" aria-hidden="true">
+                    Please remove code or scripting from the field!
+                  </span>
                 </div>
                 <div class="form-group">
                   <label for="message">Message</label>
                   <textarea rows="4" id="message" class="form-control" name="message" title="Message" placeholder="Type your message..." autocomplete="off" required></textarea>
-                  <span class="error-message" id="message-error">Please fill in the message correctly and meet the length requirements of 64 to 720 characters!</span>
-                  <span class="error-message" id="message-code-error">Please remove code or scripting from the field!</span>
+                  <span id="message-error" class="error-message" role="alert" aria-hidden="true">
+                    Please fill in the message correctly and meet the length requirements of 64 to 720 characters!
+                  </span>
+                  <span id="message-code-error" class="error-message" role="alert" aria-hidden="true">
+                    Please remove code or scripting from the field!
+                  </span>
                 </div>
                 <div class="text-center">
                   <button type="submit" class="submit-btn"><b>Submit</b></button>
