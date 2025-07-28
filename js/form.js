@@ -88,15 +88,30 @@ document.addEventListener("DOMContentLoaded", () => {
       if (event.data === " " || event.code === "Space") {
         // Block the input of space characters from both physical and virtual keyboards
         event.preventDefault();
-        // Show a modal using SweetAlert if the space key is pressed
-        Swal.fire({
-          position: "center",
-          icon: "warning",
-          title: "Space is not allowed!",
-          text: "Email addresses cannot contain spaces.",
-          showConfirmButton: false,
-          timer: 3000
-        });
+        // Show a modal using SweetAlert if the space key is pressed and return it based on the current theme
+        if (document.body.classList.contains("dark-mode")) {
+          Swal.fire({
+            position: "center",
+            icon: "warning",
+            title: "Space not allowed!",
+            text: "Email addresses cannot contain spaces.",
+            color: "#A8A9B4",
+            background: "#323232",
+            showConfirmButton: false,
+            timer: 3000
+          });
+        } else {
+          Swal.fire({
+            position: "center",
+            icon: "warning",
+            title: "Space not allowed!",
+            text: "Email addresses cannot contain spaces.",
+            color: "#545454",
+            background: "#fff",
+            showConfirmButton: false,
+            timer: 3000
+          });
+        }
       }
     });
   });
@@ -316,28 +331,58 @@ document.addEventListener("DOMContentLoaded", () => {
         subject: document.getElementById("subject").value.trim(),
         message: document.getElementById("message").value.trim()
       });
-      // Show a modal using SweetAlert if the email was sent successfully
-      Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "Form sent successfully!",
-        text: "You will receive an answer soon.",
-        showConfirmButton: false,
-        timer: 3000
-      });
+      // Show a modal using SweetAlert if the email was sent successfully and return it based on the current theme
+      if (document.body.classList.contains("dark-mode")) {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Form sent successfully!",
+          text: "You will receive an answer soon.",
+          color: "#A8A9B4",
+          background: "#323232",
+          showConfirmButton: false,
+          timer: 3000
+        });
+      } else {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Form sent successfully!",
+          text: "You will receive an answer soon.",
+          color: "#545454",
+          background: "#fff",
+          showConfirmButton: false,
+          timer: 3000
+        });
+      }
       // Update submit button text to indicate success
       submitBtn.innerText = "Sent successfully";
     } catch (error) {
       console.error("Error while sending the email: ", error);
-      // Show a modal using SweetAlert if email sending failed
-      Swal.fire({
-        position: "center",
-        icon: "error",
-        title: "Form submission failed!",
-        text: "Please try again later.",
-        showConfirmButton: false,
-        timer: 6000
-      });
+      // Show a modal using SweetAlert if email sending failed and return it based on the current theme
+      if (document.body.classList.contains("dark-mode")) {
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Form submission failed!",
+          text: "Please try again later.",
+          color: "#A8A9B4",
+          background: "#323232",
+          showConfirmButton: false,
+          timer: 6000
+        });
+      } else {
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Form submission failed!",
+          text: "Please try again later.",
+          color: "#545454",
+          background: "#fff",
+          showConfirmButton: false,
+          timer: 6000
+        });
+      }
       // Update submit button text to indicate failure
       submitBtn.innerText = "Sending failed!";
       // Highlight the border color of all input fields as invalid
