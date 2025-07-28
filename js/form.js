@@ -83,16 +83,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Disallow whitespace from being typed into the email input field
-    document.getElementById("email").addEventListener("keydown", (event) => {
+    document.getElementById("email").addEventListener("beforeinput", (event) => {
       // Prevent entering a space character to avoid invalid email formats
-      if (event.key === " " || event.code === "Space") {
+      if (event.data === " " || event.code === "Space") {
+        // Block the input of space characters from both physical and virtual keyboards
         event.preventDefault();
         // Show a modal using SweetAlert if the space key is pressed
         Swal.fire({
           position: "center",
           icon: "warning",
-          title: "Invalid character entered!",
-          text: "Spaces are not allowed in the email address field.",
+          title: "Space is not allowed!",
+          text: "Email addresses cannot contain spaces.",
           showConfirmButton: false,
           timer: 3000
         });
