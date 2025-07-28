@@ -1,167 +1,259 @@
-document.addEventListener("DOMContentLoaded", function() {
-  // Get the all required Form elements from DOM
+// Contact form logic
+document.addEventListener("DOMContentLoaded", () => {
+  // Get the all required form elements from DOM
   const contactForm = document.querySelector("#contact-form");
-  const inputFields = [
+  const submitBtn = document.querySelector(".submit-btn");
+  const fields = [
     {
       input: document.getElementById("full-name"),
       error: document.getElementById("full-name-error"),
       codeError: document.getElementById("full-name-code-error"),
-      updateFunction: updateFullNameInputBorder,
+      validator: validateFullName,
+      touched: false
     },
     {
       input: document.getElementById("email"),
       error: document.getElementById("email-error"),
       codeError: document.getElementById("email-code-error"),
-      updateFunction: updateEmailInputBorder,
+      validator: validateEmailField,
+      touched: false
     },
     {
       input: document.getElementById("subject"),
       error: document.getElementById("subject-error"),
       codeError: document.getElementById("subject-code-error"),
-      updateFunction: updateSubjectInputBorder,
+      validator: validateSubject,
+      touched: false
     },
     {
       input: document.getElementById("message"),
       error: document.getElementById("message-error"),
       codeError: document.getElementById("message-code-error"),
-      updateFunction: updateMessageTextareaBorder,
+      validator: validateMessage,
+      touched: false
     },
   ];
-  const submitBtn = document.querySelector(".submit-btn");
 
-  // Validation of each input fields
-  inputFields.forEach((field) => {
-    field.input.addEventListener("input", function () {
-      const inputValue = field.input.value.trim();
-      if (inputValue === "") {
-        field.error.style.display = "none";
-        field.codeError.style.display = "none";
-        field.input.style.borderColor = "#DEE2E6";
-      } else {
-        if (field.input.validity.valid) {
-          field.input.style.borderColor = "#18d26e";
-        } else {
-          field.input.style.borderColor = "#ed3c0d";
-        }
+  // Attach input and blur listeners to handle validation for each field
+  fields.forEach((field) => {
+    const { input, error, codeError, validator } = field;
 
-        validateInput(field.input, field.error);
-        if (field.codeError) {
-          field.codeError.style.display = "none";
-          validateScriptCode(field.input, field.codeError);
-        }
+    // Listen for user input to validate and style the field in real time
+    input.addEventListener("input", () => {
+      // Mark the field as interacted with to enable validation feedback
+      field.touched = true;
 
-        if (field.updateFunction) {
-          field.updateFunction(field.input, field.error);
-        }
+      // Get the current input and its trimmed version for validation checks
+      const currentValue = input.value;
+      const trimmedValue = currentValue.trim();
+
+      // If input is completely empty, apply invalid style or clear state if untouched
+      if (currentValue === "") {
+        (field.touched ? styleField(input, error, false) : clearFieldState(input, error, codeError));
+        return;
+      }
+
+      // If input only contains whitespace, mark it invalid and skip further validation
+      if (trimmedValue === "") {
+        toggleError(codeError, false);
+        styleField(input, error, false);
+        return;
+      }
+
+      // If input passes script safety check, apply custom validator
+      const inputSafe = validateNoScript(input, codeError);
+      if (inputSafe) {
+        validator(input, error);
+      }
+    });
+
+    // Handle field validation on losing focus
+    input.addEventListener("blur", () => {
+      // Reset state and clear validation if field is empty and untouched
+      if (input.value === "") {
+        field.touched = false;
+        clearFieldState(input, error, codeError);
+        return;
+      }
+      // Mark as invalid if the field has been touched and is still empty after trimming
+      if (field.touched && input.value.trim() === "") {
+        toggleError(codeError, false);
+        styleField(input, error, false);
+      }
+    });
+
+    // Disallow whitespace from being typed into the email input field
+    document.getElementById("email").addEventListener("keydown", (event) => {
+      // Prevent entering a space character to avoid invalid email formats
+      if (event.key === " " || event.code === "Space") {
+        event.preventDefault();
+        // Show a modal using SweetAlert if the space key is pressed
+        Swal.fire({
+          position: "center",
+          icon: "warning",
+          title: "Invalid character entered!",
+          text: "Spaces are not allowed in the email address field.",
+          showConfirmButton: false,
+          timer: 3000
+        });
       }
     });
   });
 
-  function validateInput(input, error) {
-    if (input.validity.valid) {
-      error.style.display = "none";
-      input.style.borderColor = "#18d26e";
-    } else {
-      error.style.display = "block";
-      input.style.borderColor = "#ed3c0d";
-    }
+    // Styles the input field and displays error message based on validation result
+  function styleField(input, error, isValid) {
+    // Set the border color to green if valid, otherwise set to red if invalid
+    input.style.borderColor = isValid ? "#18D26E" : "#ED3C0D";
+
+    // Show or hide the error message based on validity
+    toggleError(error, !isValid);
   }
 
-  function validateScriptCode(input, codeError) {
+  // Clears all error states and resets input field style
+  function clearFieldState(input, error, codeError) {
+    // Hide the standard validation error
+    toggleError(error, false);
+
+    // Hide the code/script validation error
+    toggleError(codeError, false);
+
+    // Reset the input border color to default
+    input.style.borderColor = "";
+  }
+
+  // Show or hide an error message element with accessibility updates
+  function toggleError(errorElement, shouldShow) {
+    // Do nothing if the element is not present
+    if (!errorElement) {
+      return;
+    }
+
+    // Toggle visibility and accessibility state of the error message
+    errorElement.style.display = shouldShow ? "block" : "none";
+    errorElement.setAttribute("aria-hidden", shouldShow ? "false" : "true");
+  }
+
+  // Validates input to prevent basic script/code injection
+  function validateNoScript(input, codeError) {
+    // Regular expressions to detect potential script tags, HTML tags, or common JS injection patterns
     const forbiddenPatterns = [
-      /<script[\s\S]*?<\/script>/i, // Matches <script>...</script> tags
-      /<.*?>/g, // Matches any HTML tags
-      /\b(document\.|window\.|eval\(|alert\(|prompt\(|console\(|function\()/gi, // Matches common JavaScript functions
+      /<script[\s\S]*?<\/script>/i,
+      /<.*?>/g,
+      /\b(document\.|window\.|eval\(|alert\(|prompt\(|console\(|function\()/gi
     ];
 
-    const value = input.value;
+    // Checks if any of the forbidden patterns match the input value
+    const injectionAttempt = forbiddenPatterns.some((pattern) => pattern.test(input.value));
 
-    if (forbiddenPatterns.some((pattern) => pattern.test(value))) {
-      codeError.style.display = "block";
-      return false;
-    } else {
-      codeError.style.display = "none";
-      return true;
+    // Shows or hides the code error message based on detection result
+    toggleError(codeError, injectionAttempt);
+
+    // Applies error styling if an injection attempt is detected
+    if (injectionAttempt) {
+      input.style.borderColor = "#ED3C0D";
     }
+
+    return !injectionAttempt;
   }
 
-  function validateEmail() {
-    const emailInput = document.getElementById("email");
-    const emailValue = emailInput.value.trim();
-
-    const validDomains = ["hotmail", "outlook", "live", "gmail", "yahoo"]; // Add valid top-level domains to the Regex pattern
-    const tldPattern = "com|net|org"; // Add more TLDs as needed
-    const domainRegex = new RegExp(`@(?:${validDomains.join("|")})\\.(?:${tldPattern})$`, "i");
-
-    return domainRegex.test(emailValue);
+  // Checks if a string starts or ends with whitespace
+  function hasEdgeWhitespace(str) {
+    // Returns true if there is leading or trailing whitespace at the beginning or end of the string
+    return /^\s+|\s+$/.test(str);
   }
 
-  function updateFullNameInputBorder(input, error) {
-    const value = input.value.trim();
+  // Validates a full name field: checks length, characters, spacing, and edge whitespace
+  function validateFullName(input, error) {
+    // Get the original and trimmed value from the input field
+    const currentValue = input.value;
+    const trimmedValue = currentValue.trim();
 
-    if (value.length >= 8 && value.length <= 32 && /^[A-Za-zÀ-ÖØ-öø-ÿ ]+$/.test(value) && value.includes(" ")) {
-      input.style.borderColor = "#18d26e";
-      if (error) {
-        error.style.display = "none";
-      }
-    } else {
-      input.style.borderColor = "#ed3c0d";
-      if (error) {
-        error.style.display = "block";
-      }
-    }
+    // Check if the trimmed value is between 8 and 32 characters
+    const lengthValid = trimmedValue.length >= 8 && trimmedValue.length <= 32;
+
+    // Check if the value contains only letters (including accented) and spaces
+    const characterPatternValid = /^[A-Za-zÀ-ÖØ-öø-ÿ ]+$/.test(trimmedValue);
+
+    // Final validation: no edge whitespace, valid length, valid characters, and contains at least one space
+    const fullNameValid = !hasEdgeWhitespace(currentValue) && lengthValid && characterPatternValid && trimmedValue.includes(" ");
+
+    // Update the input field style and show/hide error based on validation result
+    styleField(input, error, fullNameValid);
+
+    return fullNameValid;
   }
 
-  function updateEmailInputBorder(input, error) {
-    const value = input.value.trim();
-    const validDomains = ["hotmail", "outlook", "live", "gmail", "yahoo"];
-    const tldPattern = "com|net|org"; // Add more TLDs as needed
-    const domainRegex = new RegExp(`@(?:${validDomains.join("|")})\\.(?:${tldPattern})$`, "i");
+  // Validates an email address field: checks for edge whitespace, internal spaces, length, and pattern
+  function validateEmailField(input, error) {
+    // Get the original and trimmed value from the input field
+    const currentValue = input.value;
+    const trimmedValue = currentValue.trim();
 
-    if (value.length >= 14 && value.length <= 64 && domainRegex.test(value)) {
-      input.style.borderColor = "#18d26e";
-      if (error) {
-        error.style.display = "none";
-      }
-    } else {
-      input.style.borderColor = "#ed3c0d";
-      if (error) {
-        error.style.display = "block";
-      }
-    }
+    // Check if the trimmed value is between 6 and 64 characters
+    const lengthValid = trimmedValue.length >= 6 && trimmedValue.length <= 64;
+
+    // Basic email pattern: one '@', domain with a '.', and no surrounding whitespace
+    const domainPatternValid = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i.test(trimmedValue);
+
+    // Final validation: no edge whitespace, valid length, and valid domain format
+    const emailValid = !hasEdgeWhitespace(currentValue) && lengthValid && domainPatternValid;
+
+    // Update input field style and show/hide error based on validation result
+    styleField(input, error, emailValid);
+
+    return emailValid;
   }
 
-  function updateSubjectInputBorder(input, error) {
-    const value = input.value.trim();
+  // Validates the subject field: checks edge whitespace, length, and character pattern
+  function validateSubject(input, error) {
+    // Get the original and trimmed value from the input field
+    const currentValue = input.value;
+    const trimmedValue = currentValue.trim();
 
-    if (value.length >= 14 && value.length <= 128 && /^[A-Za-zÀ-ÖØ-öø-ÿ ]+$/.test(value)) {
-      input.style.borderColor = "#18d26e";
-      if (error) {
-        error.style.display = "none";
-      }
-    } else {
-      input.style.borderColor = "#ed3c0d";
-      if (error) {
-        error.style.display = "block";
-      }
-    }
+    // Check if the trimmed value is between 14 and 128 characters
+    const lengthValid = trimmedValue.length >= 14 && trimmedValue.length <= 128;
+
+    // Check if the value contains only letters (including accented) and spaces
+    const characterPatternValid = /^[A-Za-zÀ-ÖØ-öø-ÿ ]+$/.test(trimmedValue);
+
+    // Final validation: no edge whitespace, valid length, and valid character pattern
+    const subjectValid = !hasEdgeWhitespace(currentValue) && lengthValid && characterPatternValid;
+
+    // Update input field style and show/hide error based on validation result
+    styleField(input, error, subjectValid);
+
+    return subjectValid;
   }
 
-  function updateMessageTextareaBorder(input, error) {
-    const value = input.value.trim();
-    const charCount = value.length; // Calculate the character count
+  // Validates the message field: checks edge whitespace and length
+  function validateMessage(input, error) {
+    // Get the original and trimmed value from the input field
+    const currentValue = input.value;
+    const trimmedValue = currentValue.trim();
 
-    if (charCount >= 64 && charCount <= 720) {
-      input.style.borderColor = "#18d26e";
-      if (error) {
-        error.style.display = "none";
-      }
-    } else {
-      input.style.borderColor = "#ed3c0d";
-      if (error) {
-        error.style.display = "block";
-      }
-    }
+    // Check if the trimmed value is between 64 and 720 characters
+    const lengthValid = trimmedValue.length >= 64 && trimmedValue.length <= 720;
+
+    // Final validation: no edge whitespace, valid length, and valid character pattern
+    const messageValid = !hasEdgeWhitespace(currentValue) && lengthValid;
+
+    // Update input field style and show/hide error based on validation result
+    styleField(input, error, messageValid);
+
+    return messageValid;
+  }
+
+  // Triggers shake animation on the submit button with a text message
+  function shakeButton(text) {
+    // Update the submit button text and start animation
+    submitBtn.innerText = text;
+    submitBtn.style.animation = "shake-element 0.4s infinite";
+
+    // After a short delay, reset button text and stop animation
+    setTimeout(() => {
+      submitBtn.innerText = "Submit";
+      submitBtn.style.animation = "";
+    }, 2000);
   }
 
   // Consuming the required data from EmailJS
@@ -172,90 +264,86 @@ document.addEventListener("DOMContentLoaded", function() {
   // Initialize the EmailJS with Public Key
   emailjs.init(publicKey);
 
-  // Adding the Event Listener before Submitting the Contact form
-  contactForm.addEventListener("submit", function (event) {
-    // Process form submission
+  // Handle form submission logic with full validation before sending
+  contactForm.addEventListener("submit", async(event) => {
+    // Prevent default form submission
     event.preventDefault();
 
-    const nameInput = document.getElementById("full-name");
-    const emailInput = document.getElementById("email");
-    const subjectInput = document.getElementById("subject");
-    const messageInput = document.getElementById("message");
-
-    const charCount = messageInput.value.length;
-
-    // Validate all fields for validity
+    // Flag to track if all fields pass validation
     let allFieldsValid = true;
-    for (const field of inputFields) {
-      if (!field.input.validity.valid) {
+
+    // Validate each form field individually
+    for (const field of fields) {
+      // Get the current input and its trimmed value
+      const currentValue = field.input.value;
+      const trimmedValue = currentValue.trim();
+
+      // Check if the input is empty or contains leading/trailing whitespace
+      if (trimmedValue === "" || hasEdgeWhitespace(currentValue)) {
+        styleField(field.input, field.error, false);
+        toggleError(field.error, true);
         allFieldsValid = false;
-        validateInput(field.input, field.error);
+        continue;
+      }
+
+      // Perform built-in browser validation, custom field validation, and JavaScript injection check
+      const builtInValid = field.input.validity.valid;
+      const customValid = builtInValid && field.validator(field.input, field.error);
+      const scriptSafe = validateNoScript(field.input, field.codeError);
+
+      // If any validation fails, mark the field as invalid
+      if (!builtInValid || !customValid || !scriptSafe) {
+        allFieldsValid = false;
       }
     }
 
-    // Validate the email field
-    if (!validateEmail()) {
-      allFieldsValid = false;
-      const emailError = document.getElementById("email-error");
-      emailError.style.display = "block";
+    // Stop form submission if any field is invalid and provide feedback
+    if (!allFieldsValid) {
+      shakeButton("Unable to send!");
+      return;
     }
 
-    // Validate all fields for scripting code
-    let allCodeFieldsValid = true;
-    for (const field of inputFields) {
-      if (!validateScriptCode(field.input, field.codeError)) {
-        allCodeFieldsValid = false;
-      }
-    }
-
-    if (allFieldsValid && charCount >= 64 && charCount <= 720 && allCodeFieldsValid) {
-      // Change the Submit button text
-      submitBtn.innerText = "Sending...";
-
-      // Get the all input field values
-      const inputValues = {
-        name: nameInput.value,
-        email: emailInput.value,
-        subject: subjectInput.value,
-        message: messageInput.value,
-      };
-
-      // Send the email using EmailJS
-      emailjs.send(serviceId, templateId, inputValues).then(() => {
-        // Display an modal popup, if the form has submitted successfully
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Form has been submitted successfully!",
-          text: "You will receive an answer soon.",
-          showConfirmButton: false,
-          timer: 3000,
-        });
-        // Change the Submit button text
-        submitBtn.innerText = "Sent successfully";
-        // Reload the Contact form after submitting
-        setTimeout(() => window.location.reload(), 4000);
-      }, (error) => {
-        // Display an modal popup, if the form cannot be submitted due to errors
-        Swal.fire({
-          position: "center",
-          icon: "error",
-          title: "An error occurred and the form submission failed!",
-          text: "Please try again later until the problem is resolved.",
-          showConfirmButton: false,
-          timer: 6000,
-        });
-        // Catch the error in Console log
-        console.log("Error while sending the email: ", error);
-        // Change the Submit button text
-        submitBtn.innerText = "Sending failed!";
-        // Reset the border color to invalid color for all input fields
-        for (const field of inputFields) {
-          field.input.style.borderColor = "#ed3c0d";
-        }
-        // Reload the Contact form after submitting
-        setTimeout(() => window.location.reload(), 8000);
+    // Try sending the email using EmailJS service
+    try {
+      // Provide visual feedback during the sending process
+      submitBtn.innerText = "Sending…";
+      submitBtn.style.animation = "shake-element 0.4s forwards";
+      // Send the form data to the email service
+      await emailjs.send(serviceId, templateId, {
+        name: document.getElementById("full-name").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        subject: document.getElementById("subject").value.trim(),
+        message: document.getElementById("message").value.trim()
       });
+      // Show a modal using SweetAlert if the email was sent successfully
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Form sent successfully!",
+        text: "You will receive an answer soon.",
+        showConfirmButton: false,
+        timer: 3000
+      });
+      // Update submit button text to indicate success
+      submitBtn.innerText = "Sent successfully";
+    } catch (error) {
+      console.error("Error while sending the email: ", error);
+      // Show a modal using SweetAlert if email sending failed
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Form submission failed!",
+        text: "Please try again later.",
+        showConfirmButton: false,
+        timer: 6000
+      });
+      // Update submit button text to indicate failure
+      submitBtn.innerText = "Sending failed!";
+      // Highlight the border color of all input fields as invalid
+      fields.forEach(({ input }) => (input.style.borderColor = "#ED3C0D"));
+    } finally {
+      // Reload the page after a short delay to reset the form
+      setTimeout(() => window.location.reload(), 4000);
     }
   });
 });
