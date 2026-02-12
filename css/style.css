@@ -359,6 +359,28 @@ section {
 /*--------------------------------------------------------------
 # Skills section
 --------------------------------------------------------------*/
+.skills-subtitle {
+  color: #0e2442;
+  margin-bottom: 10px;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.dark-mode .skills-subtitle {
+  color: #A8A9B4;
+}
+.skills-separator {
+  width: 100%;
+  height: 2px;
+  margin-bottom: 25px;
+  border: 0;
+  background-image: linear-gradient(to right, #0e2442, transparent);
+}
+.dark-mode .skills-separator {
+  background-image: linear-gradient(to right, #A8A9B4, transparent);
+}
 .skills .progress {
   height: 60px;
   display: block;
@@ -367,7 +389,7 @@ section {
   transition: all 0.3s ease 0s;
 }
 .skills .progress:hover {
-  transform: scale(1.04);
+  transform: scale(1.02);
 }
 .skills .progress .skill {
   color: #050d18;
@@ -387,22 +409,29 @@ section {
 }
 .skills .progress-bar-wrap {
   background: #dce8f8;
-  height: 10px;
+  height: 3px;
+}
+.dark-mode .skills .progress-bar-wrap {
+  background: #bfc0c9;
 }
 .skills .progress-bar {
   background-color: #e41655;
-  height: 2px;
+  height: 3px;
   transition: 0.9s;
   border: 1px solid #e40044;
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-.skill-logo {
+.skills .progress .skill .skill-logo {
   width: 25px;
   height: 25px;
 }
-.skill-title {
+.skills .progress .skill .skill-title {
   margin: 0 6px 0 6px;
+}
+.skills .progress .skill .skill-value {
+  float: right;
+  font-style: normal;
 }
 /*--------------------------------------------------------------
 # Resume section
@@ -1279,14 +1308,8 @@ section {
   #home p {
     font-size: 25px;
   }
-  .progress-bar {
-    width: 100% !important;
-  }
 }
 @media (max-width: 575px) {
-  .skills .progress {
-    text-align: center;
-  }
   .skills .progress .skill {
     font-size: 1.15em;
   }
@@ -1304,9 +1327,6 @@ section {
   #home p {
     font-size: 22px;
   }
-  .progress-bar {
-    width: 100% !important;
-  }
 }
 @media (max-width: 468px) {
   #home {
@@ -1320,9 +1340,6 @@ section {
   }
   #home p {
     font-size: 20px;
-  }
-  .progress-bar {
-    width: 100% !important;
   }
 }
 @media (max-width: 425px) {
@@ -1338,9 +1355,6 @@ section {
   #home p {
     font-size: 18px;
   }
-  .progress-bar {
-    width: 100% !important;
-  }
 }
 @media (max-width: 375px) {
   #home {
@@ -1355,9 +1369,6 @@ section {
   #home p {
     font-size: 18px;
   }
-  .progress-bar {
-    width: 100% !important;
-  }
 }
 @media (max-width: 320px) {
   #home {
@@ -1371,8 +1382,5 @@ section {
   }
   #home p {
     font-size: 15px;
-  }
-  .progress-bar {
-    width: 100% !important;
   }
 }
